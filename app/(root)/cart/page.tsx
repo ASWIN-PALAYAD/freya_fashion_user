@@ -32,7 +32,7 @@ const Cart = () => {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
           {
-            method: "POST",
+            method:"POST",
             body: JSON.stringify({ cartItems: cart.cartItems, customer }),
           }
         );
@@ -41,7 +41,7 @@ const Cart = () => {
         window.location.href = data.url;
       }
     } catch (error) {
-      console.log("[checkout_Post]", error);
+      console.log("[checkout_Posts]", error);
     }
   };
 
