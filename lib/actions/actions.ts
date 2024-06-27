@@ -1,7 +1,15 @@
-export const getCollections = async() => {
-    const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`);
-    return await collections.json()
-}
+// export const getCollections = async() => {
+//     const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`);
+//     return await collections.json()
+// }
+
+export const getCollections = async () => {
+    const timestamp = new Date().getTime();
+    const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections?_=${timestamp}`);
+    console.log('collect :', collections);
+    
+    return await collections.json();
+  };
  
 export const getCollectionDetails = async (collectionId:string) => {
     const collection = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections/${collectionId}`);
@@ -9,7 +17,8 @@ export const getCollectionDetails = async (collectionId:string) => {
 }
 
 export const getProducts = async() => {
-    const products = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`);
+    const timestamp = new Date().getTime();
+    const products = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products?_=${timestamp}`);
     return await products.json();
 }
 
