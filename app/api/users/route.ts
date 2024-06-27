@@ -9,7 +9,7 @@ export const GET = async (req:NextRequest) => {
         const {userId} = auth();
 
         if(!userId){
-            return new NextResponse("Unauthorized",{status:401});
+            return new NextResponse(JSON.stringify({ message: "Unauthorized" }), { status: 401 })
         }
         await connectDb();
         let user = await User.findOne({clerkId:userId});
