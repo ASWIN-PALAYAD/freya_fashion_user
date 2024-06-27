@@ -2,7 +2,10 @@ import { getProducts } from "@/lib/actions/actions";
 import ProductCard from "./ProductCard";
 
 const ProductList = async () => {
+
   const products = await getProducts();
+  console.log(products);
+  
 
   return (
     <div className="flex flex-col text-center gap-10 py-8 px-5">
